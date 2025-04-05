@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: hello-world-sachin
+  namespace: hello-world-sachin
+spec:
+  hosts:
+    - "istio.sachindevops.me"
+  gateways:
+    - istio-system/gateway-hello-world-sachin
+  http:
+    - route:
+        - destination:
+            host: hello-world-sachin.hello-world-sachin.svc.cluster.local
+            port:
+              number: 80

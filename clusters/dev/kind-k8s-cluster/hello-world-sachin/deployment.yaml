@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-world-sachin
+  name: hello-world-sachin
+  namespace: hello-world-sachin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-sachin
+  template:
+    metadata:
+      labels:
+        app: hello-world-sachin
+    spec:
+      serviceAccountName: hello-world-sachin
+      automountServiceAccountToken: true
+      containers:
+      - image: webappcontainerregistrytest.azurecr.io/sachinayeshmantha/hello-world:13936849086
+        name: hello-world-sachin
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+      imagePullSecrets:
+      - name: acr-secret
+
