@@ -6,7 +6,7 @@ metadata:
   name: hello-world-sachin
   namespace: hello-world-sachin
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: hello-world-sachin
